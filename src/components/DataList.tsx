@@ -1,4 +1,3 @@
-// src/components/DataList.tsx
 import React, { useEffect, useState, useRef } from 'react';
 import { fetchData, Post } from '../services/api';
 import '../styles/App.css'; // Import the responsive styles

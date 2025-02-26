@@ -1,4 +1,3 @@
-// src/components/SearchableDataList.tsx
 import React, { useCallback, useState } from 'react';
 import DataList from './DataList';
 import ThemeToggle from './ThemeToggle';
