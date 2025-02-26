@@ -25,42 +25,45 @@ const SearchableDataList: React.FC = () => {
 
   return (
     <div>
-        
-      {/* Category filter dropdown */}
-      <select
-        value={category}
-        onChange={handleCategoryChange}
-        aria-label="Filter posts by category"
-        className="category-select"
-      >
-        <option value="all">All Categories</option>
-        <option value="1">Category 1</option>
-        <option value="2">Category 2</option>
-        <option value="3">Category 3</option>
-        <option value="4">Category 4</option>
-        <option value="5">Category 5</option>
-        <option value="6">Category 6</option>
-        <option value="7">Category 7</option>
-        <option value="8">Category 8</option>
-        <option value="9">Category 9</option>
-        <option value="10">Category 10</option>
-      </select>
+      <header className="header">
+        <h1 className="header-title">Post List</h1>
+        <div className="header-controls">
+          {/* Category filter dropdown */}
+          <select
+            value={category}
+            onChange={handleCategoryChange}
+            aria-label="Filter posts by category"
+            className="category-select"
+          >
+            <option value="all">All Categories</option>
+            <option value="1">Category 1</option>
+            <option value="2">Category 2</option>
+            <option value="3">Category 3</option>
+            <option value="4">Category 4</option>
+            <option value="5">Category 5</option>
+            <option value="6">Category 6</option>
+            <option value="7">Category 7</option>
+            <option value="8">Category 8</option>
+            <option value="9">Category 9</option>
+            <option value="10">Category 10</option>
+          </select>
 
-      {/* Theme Toggle */}
-      <ThemeToggle />
+          {/* Theme Toggle */}
+          <ThemeToggle />
 
-      {/* Search bar */}
-      <input
-        type="text"
-        placeholder="Search posts..."
-        value={searchTerm}
-        onChange={handleSearch}
-        aria-label="Search posts"
-        className="search-bar"
-      />
+          {/* Search bar */}
+          <input
+            type="text"
+            placeholder="Search posts..."
+            value={searchTerm}
+            onChange={handleSearch}
+            aria-label="Search posts"
+            className="search-bar"
+          />
+        </div>
+      </header>
 
-
-      {/* Pass searchTerm and categoryFilter to DataList */}
+      {/* DataList with searchTerm and category filter */}
       <DataList searchTerm={searchTerm} categoryFilter={category} />
     </div>
   );
