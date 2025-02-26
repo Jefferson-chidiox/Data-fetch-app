@@ -24,46 +24,6 @@
     padding: 20px;
   }
   
-  /* Header styling for inline layout */
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 16px;
-    border-bottom: 1px solid #ccc;
-    background-color: var(--background-color);
-  }
-
-  .header-title {
-    margin: 0;
-    font-size: 1.5rem;
-  }
-
-  /* Controls container for category filter, theme toggle, and search bar */
-  .header-controls {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  /* Existing styling for the search bar (if needed, adjust as necessary) */
-  .search-bar {
-    padding: 8px 12px;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    background-color: var(--input-bg);
-    color: var(--input-text);
-    outline: none;
-    max-width: 250px;
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease,
-      box-shadow 0.3s ease;
-  }
-
-  .search-bar:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-  }
-  
   /* DataList styling (unchanged from before) */
   ul.data-list {
     list-style: none;
@@ -79,6 +39,144 @@
     border-bottom: 1px solid #ccc;
   }
   
+
+/* Sticky header styling */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+  border-bottom: 1px solid #ccc;
+  background-color: var(--background-color);
+}
+
+.header-title {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+/* Header controls container */
+.header-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+/* Main controls: search bar and menu toggle button */
+.main-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Hamburger menu toggle button */
+.menu-toggle {
+  display: none; /* Hidden on larger screens */
+  background: none;
+  color: var(--text-color);
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Extra controls: category select and theme toggle */
+.extra-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 0; /* For desktop, inline with main controls */
+}
+
+/* Search bar styling */
+.search-bar {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  background-color: var(--input-bg);
+  color: var(--input-text);
+  outline: none;
+  max-width: 250px;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.search-bar:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Category select styling */
+.category-select {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: var(--input-bg);
+  color: var(--input-text);
+  outline: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  /* Stack header controls vertically on small screens */
+  .header-controls {
+    width: 100%;
+    align-items: stretch;
+  }
+
+  /* Main controls remain in a row */
+  .main-controls {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* Show hamburger menu toggle */
+  .menu-toggle {
+    display: block;
+  }
+
+  /* Hide extra controls by default on small screens */
+  .extra-controls {
+    display: none;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  /* Show extra controls when menu is toggled open */
+  .extra-controls.open {
+    display: flex;
+  }
+
+  /* Make search bar and category select full-width */
+  .search-bar,
+  .category-select {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+@media (min-width: 601px) {
+  /* On larger screens, display header controls inline and hide the menu toggle */
+  .header-controls {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
+  .menu-toggle {
+    display: none;
+  }
+  .extra-controls {
+    display: flex;
+  }
+}
+
   /* Responsive adjustments for data list items */
   @media (max-width: 600px) {
     .data-list-item {
