@@ -1,4 +1,3 @@
-Below is an example of a professional README file for your project:
 
 ---
 
